@@ -4,7 +4,6 @@
          url('./fonts/intertight-variablefont_wght-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 * {
@@ -17,8 +16,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 1000px;
+    height: 100dvh;
+    width: 100dvw;
     background: url('./img/wallpaper-2.avif') no-repeat center center / cover fixed;
     background-origin: padding-box;
     background-clip: border-box;
@@ -27,27 +26,59 @@ body {
 
 .window {
     display: grid;
-    grid-template-rows: 20px 1fr;
-    height: 180px;
-    width: 320px;
+    grid-template-rows: 1.5rem 1fr;
+    height: 300px;
+    width: 400px;
+    min-height: 180px;
+    min-width: 320px;
     margin-top: 0px;
     margin-bottom: 0px;
-    border-radius: 5px;
-    overflow: hidden;
+    border-radius: 10px;
+    resize: both;
+    overflow: auto;
+    background-color: #22252d;
 }
 
 .titlebar {
     display: flex;
     align-items: center;
-    background-color: rgba(18, 18, 18, 0.8);
-    color: #c4a000;
-    margin-top: 2px;
+    background-color: #191c24;
+    color: #b2b6bc;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 2px;
+    cursor: grab;
 }
 
-.workspace {
-    background-color: rgba(27, 29, 30, 0.8);
+.content {
+    background-color: #191c24;
     color: #06989a;
     padding: 5px;
+}
+
+.terminal-main {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 4px;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.prompt {
+    height: 1rem;
+}
+
+.terminal-input {
+    margin-top: 2px;
+    border: 0;
+    padding: 0;
+    outline: none;
+    background: transparent;
+    font-size: 1rem;
+    color: #06989a;
+    flex: 1;
+    height: 1rem;
 }
 
 .close-button {
@@ -55,6 +86,12 @@ body {
     border: 0;
     border-radius: 50%;
     padding: 4px;
-    background-color: #3465a4;
+    background-color: #5a5e66;
     cursor: pointer;
 }
+
+/* close button */
+/* #5a5e66
+
+min-max button
+#5b5f67 */
