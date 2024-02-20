@@ -2,10 +2,7 @@ import {useRef, useState} from "react"
 import { useDraggable } from "@neodrag/react"
 import "../style.css"
 
-export default function BaseApp(props) {
-  const [title, setTitle] = useState(props.title || '')
-  const [content, setContent] = useState(props.content || '')
-
+export default function BaseApp({ title, content}) {
   const draggableRef = useRef(null);
   useDraggable(draggableRef, { handle: '.titlebar', bounds: 'body' })
 
