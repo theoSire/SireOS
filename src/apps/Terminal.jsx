@@ -1,9 +1,16 @@
-import { useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import BaseApp from './BaseApp'
 import "../style.css"
 
-export default function Terminal() {
+function Terminal() {
   const inputRef = useRef(null)
+  const [input, setInput] = useState('hello')
+  const [inputDisabled, setInputDisabled] = useState(false)
+
+  const onChange = event => {
+    setInput(event.target.value)
+    console.log(input)
+  }
 
   useEffect(() => {
     const focusInput = () => {
@@ -12,7 +19,6 @@ export default function Terminal() {
       }
     }
     const terminalMain = inputRef.current.parentNode
-
     terminalMain.addEventListener('click', focusInput)
 
     return () => {
@@ -26,9 +32,17 @@ export default function Terminal() {
       content={
         <div className="terminal-main">
           <span className="prompt">$</span>
-          <input className="terminal-input" type="text" ref={inputRef}/>
+          <input 
+            className="terminal-input" 
+            onChange={onChange}
+            value={input}
+            disabled={inputDisabled}
+            ref={inputRef}
+          />
         </div>
       }
     />
   )
 }
+
+export default Terminal
