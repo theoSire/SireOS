@@ -1,3 +1,8 @@
+:root {
+    --primary-color: rgba(0, 0, 0, 0.616);
+    --font-color: #FFFFFF;
+}
+
 @font-face {
     font-family: 'inter_tightregular';
     src: url('./fonts/intertight-variablefont_wght-webfont.woff2') format('woff2'),
@@ -25,6 +30,8 @@ body {
 }
 
 .window {
+    resize: both;
+    position: absolute;
     display: grid;
     grid-template-rows: 1.5rem 1fr;
     height: 300px;
@@ -34,39 +41,76 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
     border-radius: 10px;
-    resize: both;
     overflow: auto;
-    background-color: #22252d;
 }
 
 .titlebar {
+    position: relative;
     display: flex;
     align-items: center;
-    background-color: #191c24;
-    color: #b2b6bc;
+    background-color: var(--primary-color);
+    color: var(--font-color);
     padding-top: 6px;
     padding-bottom: 6px;
-    margin-bottom: 2px;
     cursor: grab;
 }
 
+.titlebar::before {
+    position: absolute;
+    filter: blur(5px);
+}
+
+.titlebar-text {
+    position: relative;
+    z-index: 1;
+    color: #FFFFFF;
+}
+
 .content {
-    background-color: #191c24;
-    color: #06989a;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    overflow: auto;
     padding: 5px;
 }
 
 .terminal-main {
-    display: flex;
-    /* justify-content: space-between; */
-    gap: 4px;
-    overflow: auto;
     height: 100%;
     width: 100%;
 }
 
+.terminal-entry {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 0.25rem;
+}
+
+.terminal-output {
+    font-weight: 400;
+}
+
 .prompt {
-    height: 1rem;
+    display: flex;
+    justify-content: space-around;
+    color: var(--primary-color);
+    height: 100%;
+    gap: 2px;
+}
+
+.symbols {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    background-color: var(--font-color);
+    border-radius: 10px;
+    height: 100%;
+}
+
+.symbol {
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .terminal-input {
@@ -75,7 +119,7 @@ body {
     outline: none;
     background: transparent;
     font-size: 1rem;
-    color: #06989a;
+    color: var(--font-color);
     flex: 1;
     height: 1rem;
 }
