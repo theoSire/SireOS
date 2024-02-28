@@ -3,6 +3,10 @@ import BaseApp from './BaseApp'
 import "../style.css"
 
 function Terminal({ title, onClose, key }) {
+  const height = "25rem"
+  const width = "40rem"
+  const minHeight = "180px"
+  const minWidth = "320px"
   const inputRef = useRef(null)
   const [entries, setEntries] = useState([
     { id: 1, input: '', output: 'Welcome to the terminal app!', disable: false }
@@ -55,18 +59,22 @@ function Terminal({ title, onClose, key }) {
       title={title}
       onClose={onClose}
       appKey={key}
+      height={height}
+      width={width}
+      minHeight={minHeight}
+      minWidth={minWidth}
       content={
-        <div className="terminal-main">
+        <div className="terminal-main h-full w-full">
           {entries.map((entry) => (
-            <div className='terminal-entry' key={entry.id}>
-              <span className='terminal-output'>{entry.output}</span>
-              <div className="prompt">
-                <div className="symbols">
-                  <span className="symbol">&diams;</span>
-                  <span className="symbol">~</span>
+            <div className="terminal-entry flex flex-col w-full overflow-auto mb-0.25rem" key={entry.id}>
+              <span className="terminal-output font-normal">{entry.output}</span>
+              <div className="prompt flex justify-around items-center text-black text-opacity-60 h-full gap-2">
+                <div className="symbols flex justify-around pl-0.25rem pr-0.25rem bg-white rounded-xl h-full">
+                  <span className="symbol ml-2 mr-2">&diams;</span>
+                  <span className="symbol ml-2 mr-2">~</span>
                 </div>
                 <input 
-                  className="terminal-input" 
+                  className="terminal-input border-0 p-sm outline-none bg-transparent text-base text-white flex-1 h-1rem" 
                   onChange={(e) => onChange(e, entry.id)}
                   onKeyDown={(e) => onKeyDown(e, entry.id)}
                   value={entry.input}
