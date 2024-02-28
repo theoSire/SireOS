@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --primary-color: rgba(0, 0, 0, 0.616);
     --font-color: #FFFFFF;
@@ -29,7 +33,7 @@ body {
     overflow: hidden;
 }
 
-.window {
+/* .window {
     resize: both;
     position: absolute;
     display: grid;
@@ -131,7 +135,7 @@ body {
     padding: 4px;
     background-color: #5a5e66;
     cursor: pointer;
-}
+} */
 
 /* close button */
 /* #5a5e66
