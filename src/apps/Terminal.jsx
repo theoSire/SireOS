@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import BaseApp from './BaseApp'
 import "../style.css"
 
-function Terminal({ title, onClose, key }) {
+function Terminal({ title, onClose, key, isFocused }) {
   const height = "25rem"
   const width = "40rem"
   const minHeight = "180px"
@@ -39,17 +39,20 @@ function Terminal({ title, onClose, key }) {
   }
 
   useEffect(() => {
-    const terminalMain = inputRef.current?.parentNode.parentNode.parentNode.parentNode
+    const appWindow = inputRef.current?.parentNode.parentNode.parentNode.parentNode.parentNode
+    console.log("inputRef.current:", inputRef.current)
+    console.log("appWindow:", appWindow)
+    console.log("isFocused:", isFocused)
     const focusInput = () => {
-      if (inputRef.current && terminalMain) {
+      if ((inputRef.current && appWindow)|| isFocused) {
         inputRef.current.focus()
       }
     }
-    if (terminalMain) {
-    terminalMain.addEventListener('click', focusInput)
+    if (appWindow) {
+    appWindow.addEventListener('click', focusInput)
 
     return () => {
-      terminalMain.removeEventListener('click', focusInput)
+      appWindow.removeEventListener('click', focusInput)
     }
   }
   }, [])
@@ -63,18 +66,19 @@ function Terminal({ title, onClose, key }) {
       width={width}
       minHeight={minHeight}
       minWidth={minWidth}
+      isFocused={isFocused}
       content={
         <div className="terminal-main h-full w-full">
           {entries.map((entry) => (
             <div className="terminal-entry flex flex-col w-full overflow-auto mb-0.25rem" key={entry.id}>
               <span className="terminal-output font-normal">{entry.output}</span>
-              <div className="prompt flex justify-around items-center text-black text-opacity-60 h-full gap-2">
-                <div className="symbols flex justify-around pl-0.25rem pr-0.25rem bg-white rounded-xl h-full">
+              <div className="prompt flex justify-around items-center text-opacity-60 h-full gap-2">
+                <div className="symbols flex justify-around border-2 border-slate-400 pl-0.25rem pr-0.25rem rounded-2xl h-full text-slate-400">
                   <span className="symbol ml-2 mr-2">&diams;</span>
                   <span className="symbol ml-2 mr-2">~</span>
                 </div>
                 <input 
-                  className="terminal-input border-0 p-sm outline-none bg-transparent text-base text-white flex-1 h-1rem" 
+                  className="terminal-input border-0 p-sm outline-none bg-transparent text-base flex-1 h-1rem" 
                   onChange={(e) => onChange(e, entry.id)}
                   onKeyDown={(e) => onKeyDown(e, entry.id)}
                   value={entry.input}

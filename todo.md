@@ -1,0 +1,7 @@
+- focused app should be set to an higher z-index
+- focus on the app, when the app launched with the button in the app drawer
+- maximize, minimize of apps
+- min size of the apps
+- the window size (responsiveness)
+- style the app (box shadow, border)
+- resize border radius
