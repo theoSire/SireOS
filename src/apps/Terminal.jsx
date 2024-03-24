@@ -1,12 +1,25 @@
 import { useState, useEffect, useRef } from 'react'
+import { useAppStore, useBaseAppStore } from '../store'
 import BaseApp from './BaseApp'
 import "../style.css"
 
-function Terminal({ title, onClose, key, isFocused }) {
-  const height = "25rem"
-  const width = "40rem"
-  const minHeight = "180px"
-  const minWidth = "320px"
+function Terminal() {
+  const { apps } = useBaseAppStore()
+  // console.log("Apps logged from the Terminal: ", apps)
+  const TerminalAppKey = apps.Terminal.appKey
+  // const { closeApp } = useAppStore()
+  // const { addApp } = useBaseAppStore()
+
+  // const TerminalApp = {
+  //   appKey: "Terminal",
+  //   component: <Terminal onClose={() => closeApp(appKey)}/>,
+  //   height: "25rem",
+  //   width: "40rem",
+  //   minHeight: "180px",
+  //   minWidth: "320px",
+  // }
+  // addApp(TerminalApp.title, TerminalApp)
+
   const inputRef = useRef(null)
   const [entries, setEntries] = useState([
     { id: 1, input: '', output: 'Welcome to the terminal app!', disable: false }
@@ -40,11 +53,8 @@ function Terminal({ title, onClose, key, isFocused }) {
 
   useEffect(() => {
     const appWindow = inputRef.current?.parentNode.parentNode.parentNode.parentNode.parentNode
-    console.log("inputRef.current:", inputRef.current)
-    console.log("appWindow:", appWindow)
-    console.log("isFocused:", isFocused)
     const focusInput = () => {
-      if ((inputRef.current && appWindow)|| isFocused) {
+      if (inputRef.current && appWindow) {
         inputRef.current.focus()
       }
     }
@@ -59,14 +69,7 @@ function Terminal({ title, onClose, key, isFocused }) {
 
   return (
     <BaseApp
-      title={title}
-      onClose={onClose}
-      appKey={key}
-      height={height}
-      width={width}
-      minHeight={minHeight}
-      minWidth={minWidth}
-      isFocused={isFocused}
+      appKey = {TerminalAppKey}
       content={
         <div className="terminal-main h-full w-full">
           {entries.map((entry) => (
