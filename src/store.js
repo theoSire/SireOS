@@ -21,7 +21,6 @@ export const useAppStore = create((set) => ({
       set((state) => ({
         activeApps: state.activeApps.filter((key) => key !== appKey),
       }));
-      console.log("closed!")
     },
 
     changeZIndex: (appKey) => {
@@ -59,4 +58,34 @@ export const useBaseAppStore = create((set) => ({
         return state
       }
     }),
+
+  toggleMaximize: (appKey) => 
+    set((state) => {
+      const newMaxState = !state.apps[appKey].maximized
+      return {
+        ...state,
+        apps: {
+          ...state.apps,
+          [appKey]: {
+            ...state.apps[appKey],
+            maximized: newMaxState
+          }
+        }
+      }
+    }),
+
+  toggleVisibility: (appKey) => 
+    set((state) => {
+      const newVisibility = !state.apps[appKey].isVisible
+      return {
+        ...state,
+        apps: {
+          ...state.apps,
+          [appKey]: {
+            ...state.apps[appKey],
+            isVisible: newVisibility
+          }
+        }
+      }
+    })
 }))

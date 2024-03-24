@@ -1,24 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { useAppStore, useBaseAppStore } from '../store'
+import { useBaseAppStore } from '../store'
 import BaseApp from './BaseApp'
 import "../style.css"
 
 function Terminal() {
   const { apps } = useBaseAppStore()
-  // console.log("Apps logged from the Terminal: ", apps)
   const TerminalAppKey = apps.Terminal.appKey
-  // const { closeApp } = useAppStore()
-  // const { addApp } = useBaseAppStore()
-
-  // const TerminalApp = {
-  //   appKey: "Terminal",
-  //   component: <Terminal onClose={() => closeApp(appKey)}/>,
-  //   height: "25rem",
-  //   width: "40rem",
-  //   minHeight: "180px",
-  //   minWidth: "320px",
-  // }
-  // addApp(TerminalApp.title, TerminalApp)
 
   const inputRef = useRef(null)
   const [entries, setEntries] = useState([

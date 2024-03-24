@@ -7,7 +7,7 @@ import Calculator from "./apps/Calculator"
 import { useEffect } from 'react'
 
 export default function App() {
-  const { activeApps, zIndex, maxZIndex, focusedApp, openApp, closeApp, changeZIndex, changeFocusedApp } = useAppStore()
+  const { activeApps, zIndex, maxZIndex, openApp, closeApp, changeZIndex, changeFocusedApp } = useAppStore()
   const { apps, addApp } = useBaseAppStore()
 
   const TerminalApp = {
@@ -17,10 +17,10 @@ export default function App() {
     width: "40rem",
     minHeight: "180px",
     minWidth: "320px",
+    maximized: true,
+    isVisible: true,
   }
   addApp(TerminalApp.appKey, TerminalApp)
-  // console.log(TerminalApp)
-  // console.log("apps:", apps)
 
   return (
     <div className="desktop flex justify-center align-top">
