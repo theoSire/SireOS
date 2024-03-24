@@ -1,28 +1,31 @@
-import {useRef, useState} from "react"
+import {useEffect, useRef, useState} from "react"
 import { useDraggable } from "@neodrag/react"
+import { useAppStore, useBaseAppStore } from "../store"
 import '../style.css'
 
-export default function BaseApp({ title, content, appKey, onClose, height, width, minHeight, minWidth, isFocused }) {
-  let h = height
-  let w = width
-
+export default function BaseApp({ appKey, content }) {
   const [maximized, setMaximized] = useState(true)
   const [isVisible, setIsVisible] = useState(true)
 
   const draggableRef = useRef(null);
   useDraggable(draggableRef, { handle: '.titlebar', bounds: 'body' })
 
-  // console.log(maximized)
+  const { apps } = useBaseAppStore()
+  const p = apps[appKey]
+  const { closeApp } = useAppStore()
+
   return (
-    <div className={`window resize fixed grid grid-rows-[1.75rem,1fr] border-2 border-slate-400 h-[${h}] w-[95dvw] sm:w-[${w}] min-h-[${minHeight}] min-w-[${minWidth}] max-w-[100dvw] max-h-[100dvh] bg-black bg-opacity-75 text-slate-300 backdrop-blur-md rounded-lg overflow-auto`} 
+    <div className={`window fixed resize grid grid-rows-[1.75rem,1fr] border-2 border-slate-400 h-[${p.height}] w-[95dvw] sm:w-[${p.width}] max-w-[100dvw] max-h-[100dvh] bg-black bg-opacity-75 text-slate-300 backdrop-blur-md rounded-lg overflow-auto`} 
       ref={draggableRef}
       style={{
               boxShadow: '0px 0px 1rem black',
-              transform: maximized ? 'translate(0px, 0px)' : 'translate(-50%, -50%)',
-              height: maximized ? '100vh' : h, 
-              width: maximized ? '100vw' : w,
-              top: maximized ? '0%' : '50%',
-              left: maximized ? '0%' : '50%',
+              transform: maximized ? 'translate(0px, 0px)' : 'translate(0%, 0%)',
+              top: maximized ? '0' : '0%',
+              left: maximized ? '0' : '0%',
+              height: maximized ? '100vh' : p.height, 
+              width: maximized ? '100vw' : p.width,
+              minHeight: p.minHeight,
+              minWidth: p.minWidth,
               opacity: isVisible ? 1 : 0,
             }}
     >
@@ -33,10 +36,10 @@ export default function BaseApp({ title, content, appKey, onClose, height, width
       >
         <button 
           className={`close-button ml-1.5 border-2 border-slate-400 p-1.5 text-xs rounded-lg hover:bg-slate-300 hover:border-slate-300 active:bg-slate-500 active:border-slate-500 transition-colors duration-300`} 
-          onClick={() => { if (onClose) {
+          onClick={() => { if (closeApp) {
             setTimeout(() => {
               setIsVisible(!isVisible)
-              onClose(appKey) 
+              closeApp(appKey) 
             }, 150)
             }}}
         >
@@ -45,7 +48,7 @@ export default function BaseApp({ title, content, appKey, onClose, height, width
           className={`min-max-button ml-1.5 border-2 border-orange-300 border-opacity-70 p-1.5 text-xs rounded-lg hover:bg-orange-200 hover:border-orange-200 active:bg-orange-400 active:border-orange-400 transition-colors duration-300`} 
           onClick={() => { setMaximized(!maximized) }}>            
         </button>
-       <span className="titlebar-text relative ml-1.5">{title}</span>
+       <span className="titlebar-text relative ml-1.5">{appKey}</span>
       </div>
       <div className="content overflow-auto p-1">
         {content}
