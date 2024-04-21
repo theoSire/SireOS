@@ -20,7 +20,32 @@ export default function App() {
     maximized: true,
     isVisible: true,
   }
+
+  const WeatherApp = {
+    appKey: "Weather",
+    component: <Weather onClose={() => closeApp(this.appKey)}/>,
+    height: "25rem",
+    width: "40rem",
+    minHeight: "350px",
+    minWidth: "322px",
+    maximized: false,
+    isVisible: true,
+  }
+
+  const BrowserApp = {
+    appKey: "Browser",
+    component: <Browser onClose={() => closeApp(this.appKey)}/>,
+    height: "25rem",
+    width: "40rem",
+    minHeight: "350px",
+    minWidth: "440px",
+    maximized: false,
+    isVisible: true,
+  }
+
   addApp(TerminalApp.appKey, TerminalApp)
+  addApp(WeatherApp.appKey, WeatherApp)
+  addApp(BrowserApp.appKey, BrowserApp)
 
   return (
     <div className="desktop flex justify-center align-top">

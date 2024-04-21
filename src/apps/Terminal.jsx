@@ -58,7 +58,7 @@ function Terminal() {
     <BaseApp
       appKey = {TerminalAppKey}
       content={
-        <div className="terminal-main h-full w-full">
+        <div className="terminal-main h-full w-full p-1">
           {entries.map((entry) => (
             <div className="terminal-entry flex flex-col w-full overflow-auto mb-0.25rem" key={entry.id}>
               <span className="terminal-output font-normal">{entry.output}</span>

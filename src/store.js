@@ -59,33 +59,4 @@ export const useBaseAppStore = create((set) => ({
       }
     }),
 
-  toggleMaximize: (appKey) => 
-    set((state) => {
-      const newMaxState = !state.apps[appKey].maximized
-      return {
-        ...state,
-        apps: {
-          ...state.apps,
-          [appKey]: {
-            ...state.apps[appKey],
-            maximized: newMaxState
-          }
-        }
-      }
-    }),
-
-  toggleVisibility: (appKey) => 
-    set((state) => {
-      const newVisibility = !state.apps[appKey].isVisible
-      return {
-        ...state,
-        apps: {
-          ...state.apps,
-          [appKey]: {
-            ...state.apps[appKey],
-            isVisible: newVisibility
-          }
-        }
-      }
-    })
 }))
