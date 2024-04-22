@@ -143,7 +143,7 @@ function Weather() {
     <BaseApp
       appKey={WeatherAppKey}
       content={
-        <div className="weather-main flex flex-col justify-center items-center gap-y-4 p-2 w-fit text-slate-400">
+        <div className="weather-main flex flex-col justify-center items-center gap-y-4 p-2 w-fit text-slate-300">
           <div className="input flex flex-col items-center gap-y-1.5">
             <div className="input-header flex items-center w-full">
               <p className="location-title ml-4 grow flex-1">Location</p>

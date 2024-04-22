@@ -36,7 +36,7 @@ export default function BaseApp({ appKey, content }) {
         }}
       >
         <button 
-          className={`close-button ml-1.5 border-2 border-slate-400 p-1.5 text-xs rounded-lg hover:bg-slate-300 hover:border-slate-300 hover: active:bg-slate-500 active:border-slate-500 transition-colors duration-300`} 
+          className={`close-button ml-1.5 border-2 border-slate-400 p-1.5 text-xs rounded-lg hover:bg-slate-300 hover:border-slate-300 hover: active:bg-slate-500 active:border-slate-500 transition-all`}
           onMouseOver={(e) => {
             e.currentTarget.style.boxShadow = '0px 0px .35rem #a0aec0'
           }}
@@ -58,7 +58,7 @@ export default function BaseApp({ appKey, content }) {
         >
         </button>
         <button 
-          className={`min-max-button ml-1.5 border-2 border-orange-300 border-opacity-70 p-1.5 text-xs rounded-lg hover:bg-orange-200 hover:border-orange-200 active:bg-orange-400 active:border-orange-400 transition-colors duration-300`} 
+          className={`min-max-button ml-1.5 border-2 border-orange-300 border-opacity-70 p-1.5 text-xs rounded-lg hover:bg-orange-200 hover:border-orange-200 active:bg-orange-400 active:border-orange-400 transition-all`} 
           onMouseOver={(e) => {
             e.currentTarget.style.boxShadow = '0px 0px .35rem #FBD38D'
           }}

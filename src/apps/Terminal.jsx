@@ -63,7 +63,7 @@ function Terminal() {
             <div className="terminal-entry flex flex-col w-full overflow-auto mb-0.25rem" key={entry.id}>
               <span className="terminal-output font-normal">{entry.output}</span>
               <div className="prompt flex justify-around items-center text-opacity-60 h-full gap-2">
-                <div className="symbols flex justify-around border-2 border-slate-400 pl-0.25rem pr-0.25rem rounded-2xl h-full text-slate-400">
+                <div className="symbols flex justify-around border-2 border-slate-400 pl-0.25rem pr-0.25rem rounded-2xl h-full text-slate-300">
                   <span className="symbol ml-2 mr-2">&diams;</span>
                   <span className="symbol ml-2 mr-2">~</span>
                 </div>
