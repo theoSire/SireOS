@@ -52,8 +52,11 @@ export default function App() {
   addApp(BrowserApp.appKey, BrowserApp)
 
   return (
-    <div>
-      <div className="apps-dock-parent w-full h-full relative flex justify-center sm:justify-start items-end sm:items-center">
+    <div className='w-full h-full'>
+      <div className='w-full h-[5%] flex sm:items-center'>
+        <Panel/>
+      </div>
+      <div className="apps-dock-parent w-full h-[95%] relative flex justify-center sm:justify-start items-end sm:items-center">
         <AppsDock/>
         <div className="active-apps relative">
           {activeApps.map((appKey) => (
@@ -66,9 +69,6 @@ export default function App() {
             </div>
           ))}
         </div>
-      </div>
-      <div>
-        <Panel/>
       </div>
     </div>
   )

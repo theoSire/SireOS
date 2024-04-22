@@ -21,7 +21,7 @@ export default function AppsDock() {
       {Object.entries(apps).map(([appKey, app]) => {
         return (
         <button 
-          className={`${appKey}-button border-2 border-slate-400 rounded-lg hover:scale-110 transition-all`} 
+          className={`${appKey}-button border-2 border-slate-400 rounded-lg hover:border-slate-300 hover:scale-110 transition-all`} 
           onMouseOver={(e) => {
             e.currentTarget.style.boxShadow = '0px 0px .50rem #a0aec0'
           }}
@@ -48,7 +48,7 @@ export default function AppsDock() {
       {Object.entries(otherLinks).map(([link, value]) => {
         return (
           <a href={value.url}
-            className={`${link}-button border-2 border-slate-400 rounded-lg hover:scale-110 transition-all`}
+            className={`${link}-button border-2 border-slate-400 rounded-lg hover:border-slate-300 hover:scale-110 transition-all`}
             target="_blank"
             onMouseOver={(e) => {
             e.currentTarget.style.boxShadow = '0px 0px .50rem #a0aec0'
