@@ -27,7 +27,7 @@ function Weather() {
  
   const fetchData = async (location) => {
     const apiKey = import.meta.env.VITE_REACT_APP_API_KEY
-    const URL = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`
+    const URL = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`
     try {
       if (location === "") {
         setShowInstructions(true)
