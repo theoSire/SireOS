@@ -10,12 +10,12 @@ export default function Panel() {
         day: "numeric",
     }
 
-    const close = () => {
-        let confirmation = confirm("bro you going? 🥺🥺🥺🥺")
-        if (confirmation == true) {
-            window.close()
-        }
-    }
+    // const close = () => {
+    //     let confirmation = confirm("bro you going? 🥺🥺🥺🥺")
+    //     if (confirmation == true) {
+    //         window.close()
+    //     }
+    // }
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -31,7 +31,11 @@ export default function Panel() {
                 <p>{dateTime.toLocaleDateString('en-GB', dateOptions).replaceAll('/', '.')}</p>
                 <p className='text-center'>{dateTime.toLocaleTimeString("en-GB")}</p>
             </div>
-            <button className="pr-1 hover:text-red-700" onClick={close}>
+            {/* <button className="pr-1 hover:text-red-700" onClick={close}> */}
+            <button 
+                className="pr-1 hover:text-red-700"
+                onClick={() => window.close()}
+            >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2v10h-2V2zm3.78 1.728l.809.589a9.5 9.5 0 1 1-11.178 0l.808-.59l1.178 1.617l-.808.59a7.5 7.5 0 1 0 8.822 0l-.808-.59z"/></svg>
             </button>
         </div>
