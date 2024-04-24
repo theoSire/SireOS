@@ -119,7 +119,7 @@ function Weather() {
     if (isInMetric) {
       return (
       <React.Fragment>
-        <p className="border-b-2 text-center w-full border-slate-400 mb-2">{city}, {country}</p>
+        <p className="border-b-2 text-center w-full border-slate-300 mb-2">{city}, {country}</p>
         <p>Current Temperature: {temp_C}&deg;C</p>
         <p>Feels Like: {feelsLike_C}&deg;C</p>
         <p>Humidity: {humidity}%</p>
@@ -129,7 +129,7 @@ function Weather() {
     } else {
       return (
         <React.Fragment>
-          <p className="border-b-2 text-center w-full border-slate-400 mb-2">{city}, {country}</p>
+          <p className="border-b-2 text-center w-full border-slate-300 mb-2">{city}, {country}</p>
           <p>Current Temperature: {temp_F}&deg;F</p>
           <p>Feels Like: {feelsLike_F}&deg;F</p>
           <p>Humidity: {humidity}%</p>
@@ -149,18 +149,18 @@ function Weather() {
               <p className="location-title ml-4 grow flex-1">Location</p>
               {!showInstruction && !error ? (
                 <div 
-                  className="unit-converter flex border-2 border-slate-400 rounded-xl overflow-hidden cursor-default"
+                  className="unit-converter flex border-2 border-slate-300 rounded-xl overflow-hidden cursor-default"
                   onClick={() => setIsInMetric(!isInMetric)}
                 >
-                  <div className={`${isInMetric ? 'px-1.5 bg-slate-400 text-slate-950' : "px-1.5"}`}>&deg;C</div>
-                  <div className={`${isInMetric ? "px-1.5" : 'px-1.5 bg-slate-400 text-slate-950'}`}>&deg;F</div>
+                  <div className={`${isInMetric ? 'px-1.5 bg-slate-300 text-slate-950' : "px-1.5"}`}>&deg;C</div>
+                  <div className={`${isInMetric ? "px-1.5" : 'px-1.5 bg-slate-300 text-slate-950'}`}>&deg;F</div>
                 </div>
               ) : (
                 <div></div>
               )
               }
             </div>
-            <div className="search-bar border-2 border-slate-400 rounded-xl overflow-hidden">
+            <div className="search-bar border-2 border-slate-300 rounded-xl overflow-hidden">
               <input 
                 className="location-input bg-transparent px-3.5 placeholder-slate-600" 
                 id='location-input'
@@ -172,18 +172,18 @@ function Weather() {
                 onKeyDown={(e) => onKeyDown(e)}
               />
               <button 
-                className="search-button text-slate-700 px-2 bg-slate-400 border-r-4  border-slate-400"
+                className="search-button text-slate-700 px-2 bg-slate-300 border-r-4  border-slate-300"
                 onClick={handleSearch}
               >Search</button>
             </div>
             <button 
-              className="current-weather-button flex items-center gap-1 text-slate-700 px-2 bg-slate-400 border-2 border-slate-400 rounded-xl"
+              className="current-weather-button flex items-center gap-1 text-slate-700 px-2 bg-slate-300 border-2 border-slate-300 rounded-xl"
               onClick={getCurrentLocationWeather}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12q.825 0 1.413-.587T14 10t-.587-1.412T12 8t-1.412.588T10 10t.588 1.413T12 12m0 10q-4.025-3.425-6.012-6.362T4 10.2q0-3.75 2.413-5.975T12 2t5.588 2.225T20 10.2q0 2.5-1.987 5.438T12 22"/></svg>
               Your Location Weather</button>
           </div>
-          <div className="output flex flex-col justify-items-center items-center border-2 w-full p-2 border-slate-400 rounded-xl">
+          <div className="output flex flex-col justify-items-center items-center border-2 w-full p-2 border-slate-300 rounded-xl">
             {showInstruction && !gettingCurrWeather ? (
               <p className="instructions relative w-4/5 text-center">
                 Please enter a location to get weather information.
@@ -192,7 +192,7 @@ function Weather() {
               <React.Fragment>
                 {loading && !error ? (
                   <div 
-                    className="loader border-2 border-slate-700 border-t-2 border-t-slate-400 rounded-full w-8 h-8 animate-spin"
+                    className="loader border-2 border-slate-700 border-t-2 border-t-slate-300 rounded-full w-8 h-8 animate-spin"
                   ></div>
                 ): (
                   <React.Fragment>

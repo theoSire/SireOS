@@ -27,12 +27,9 @@ body {
     align-items: center;
     height: 100dvh;
     width: 100dvw;
-    background: url('/img/wallpaper-2.avif') no-repeat center center / cover fixed;
+    background: url('/img/wallpaper-2-1.avif') no-repeat center center / cover fixed;
     background-origin: padding-box;
     background-clip: border-box;
     overflow: hidden;
-}
-
-.browser-button {
     transition: all 0.3s;
 }

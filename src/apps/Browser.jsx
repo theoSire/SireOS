@@ -33,9 +33,9 @@ function Browser() {
       appKey = {BrowserAppKey}
       content={
         <div className="browser-main flex flex-col w-full h-full">
-          <div className="nav-bar w-full pl-1 py-[.12rem] flex gap-1.5 border-b-2 border-slate-400">
+          <div className="nav-bar w-full pl-1 py-[.12rem] flex gap-1.5 border-b-2 border-slate-300">
             <input 
-              className="search-bar mr-1.5 border-2 border-slate-400 rounded-xl bg-transparent px-3.5 placeholder-slate-600 outline-none flex-1"
+              className="search-bar mr-1.5 border-2 border-slate-300 rounded-xl bg-transparent px-3.5 placeholder-slate-600 outline-none flex-1"
               type="text" 
               placeholder="Search with Swisscows or enter address"
               value={input}

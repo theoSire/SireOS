@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react"
+import { useRef, useState} from "react"
 import { useDraggable } from "@neodrag/react"
 import { useAppStore, useBaseAppStore } from "../store"
 import '../style.css'
@@ -15,7 +15,7 @@ export default function BaseApp({ appKey, content }) {
   const { closeApp } = useAppStore()
 
   return (
-    <div className={`window fixed resize grid grid-rows-[1.75rem,1fr] border-2 border-slate-400 h-[${p.height}] w-[95dvw] sm:w-[${p.width}] min-h-[${p.minHeight}] min-w-[${p.minWidth}] max-w-[100dvw] max-h-[100dvh] bg-black bg-opacity-75 text-slate-300 backdrop-blur-md rounded-lg overflow-auto`} 
+    <div className={`window fixed resize grid grid-rows-[1.75rem,1fr] border-2 border-slate-300 h-[${p.height}] w-[95dvw] sm:w-[${p.width}] min-h-[${p.minHeight}] min-w-[${p.minWidth}] max-w-[100dvw] max-h-[100dvh] bg-black bg-opacity-75 text-slate-300 backdrop-blur-md rounded-lg overflow-auto`} 
       ref={draggableRef}
       style={{
               boxShadow: '0px 0px 1rem black',
@@ -30,7 +30,7 @@ export default function BaseApp({ appKey, content }) {
               opacity: isVisible ? 1 : 0,
             }}
     >
-      <div className="titlebar relative flex items-center cursor-default border-b-2 border-slate-400 py-1.5" 
+      <div className="titlebar relative flex items-center cursor-default border-b-2 border-slate-300 py-1.5" 
         onDoubleClick={() => { 
             setMaximized(!maximized)
         }}
@@ -74,7 +74,7 @@ export default function BaseApp({ appKey, content }) {
           onClick={() => { setMaximized(!maximized) }}>            
         </button>
       
-       <span className="titlebar-text relative ml-1.5">{appKey}</span>
+       <span className="titlebar-text relative ml-1.5 font-bold">{appKey}</span>
       </div>
       <div className="flex justify-center items-start content overflow-auto">
         {content}
