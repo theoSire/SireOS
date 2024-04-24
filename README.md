@@ -1,8 +1,16 @@
-# React + Vite
+![SireOS screenshot](./public/img/sire_os_screenshot.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# SireOS
 
-Currently, two official plugins are available:
+I made a dummy OS as my first React Project.
+Hope you guys like it.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Inspired by [TheoIsDumb](https://github.com/TheoIsDumb)'s [TheoOS](https://os.vkdbois.xyz)
+
+## Project Toolkit
+
+- [React](https://react.dev)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [tailwindcss](https://tailwindcss.com/)
+- [@neodrag/react](https://www.neodrag.dev/docs/react)
+- [Icônes](https://icones.js.org/)
