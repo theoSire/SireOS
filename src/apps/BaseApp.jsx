@@ -36,19 +36,7 @@ export default function BaseApp({ appKey, content }) {
         }}
       >
         <button 
-          className={`close-button ml-1.5 border-2 border-slate-400 p-1.5 text-xs rounded-lg hover:bg-slate-300 hover:border-slate-300 hover: active:bg-slate-500 active:border-slate-500 transition-all`}
-          onMouseOver={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem #a0aec0'
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem transparent'
-          }}
-          onMouseDown={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem #64748b'
-          }}
-          onMouseUp={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem transparent'
-          }}
+          className={`close-button ml-1.5 border-2 border-slate-400 p-1.5 text-xs rounded-lg hover:bg-slate-300 hover:border-slate-300 hover: active:bg-slate-500 active:border-slate-500 transition-all hover:drop-shadow-[0px_0px_.35rem_#a0aec0] active:drop-shadow-[0px_0px_.35rem_#64748b]`}
           onClick={() => { if (closeApp) {
             setTimeout(() => {
               setIsVisible(!isVisible)
@@ -58,19 +46,7 @@ export default function BaseApp({ appKey, content }) {
         >
         </button>
         <button 
-          className={`min-max-button ml-1.5 border-2 border-orange-300 border-opacity-70 p-1.5 text-xs rounded-lg hover:bg-orange-200 hover:border-orange-200 active:bg-orange-400 active:border-orange-400 transition-all`} 
-          onMouseOver={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem #FBD38D'
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.boxShadow = '0 0 .35rem transparent'
-          }}
-          onMouseDown={(e) => {
-            e.currentTarget.style.boxShadow = '0 0 .35rem #ED8936'
-          }}
-          onMouseUp={(e) => {
-            e.currentTarget.style.boxShadow = '0 0 .35rem transparent'
-          }}
+          className={`min-max-button ml-1.5 border-2 border-orange-300 border-opacity-70 p-1.5 text-xs rounded-lg hover:bg-orange-200 hover:border-orange-200 active:bg-orange-400 active:border-orange-400 transition-all hover:drop-shadow-[0px_0px_.35rem_#FBD38D] active:drop-shadow-[0_0_.35rem_#ED8936]`} 
           onClick={() => { setMaximized(!maximized) }}>            
         </button>
       
