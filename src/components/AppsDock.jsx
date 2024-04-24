@@ -21,19 +21,7 @@ export default function AppsDock() {
       {Object.entries(apps).map(([appKey, app]) => {
         return (
         <button 
-          className={`${appKey}-button border-2 border-slate-400 rounded-lg hover:border-slate-300 hover:scale-110 transition-all`} 
-          onMouseOver={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .50rem #a0aec0'
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem transparent'
-          }}
-          onMouseDown={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem #64748b'
-          }}
-          onMouseUp={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem transparent'
-          }}
+          className={`${appKey}-button border-2 border-slate-400 rounded-lg hover:border-slate-300 hover:scale-110 transition-all hover:drop-shadow-[0px_0px_.5rem_#a0aec0] focus:drop-shadow-[0px_0px_.5rem_#64748b]`}
           key={appKey}
           onClick={() => {
             openApp(appKey)
@@ -48,20 +36,8 @@ export default function AppsDock() {
       {Object.entries(otherLinks).map(([link, value]) => {
         return (
           <a href={value.url}
-            className={`${link}-button border-2 border-slate-400 rounded-lg hover:border-slate-300 hover:scale-110 transition-all`}
+            className={`${link}-button border-2 border-slate-400 rounded-lg hover:border-slate-300 hover:scale-110 transition-all hover:drop-shadow-[0px_0px_.5rem_#a0aec0] focus:drop-shadow-[0px_0px_.5rem_#64748b]`}
             target="_blank"
-            onMouseOver={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .50rem #a0aec0'
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem transparent'
-          }}
-          onMouseDown={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem #64748b'
-          }}
-          onMouseUp={(e) => {
-            e.currentTarget.style.boxShadow = '0px 0px .35rem transparent'
-          }}
           key={link}
           >
             {value.icon}
