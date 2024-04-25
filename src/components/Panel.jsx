@@ -28,8 +28,8 @@ export default function Panel() {
     return (
         <div className="panel flex sm:justify-center items-center sm:items-center mx-1 mt-1 w-full border-2 border-slate-300 rounded-xl text-slate-300 bg-black bg-opacity-75">
             <div className='date-time flex flex-1 justify-center items-center gap-5 h-full sm:h-8 w-10 sm:w-full text-md'>
-                <p>{dateTime.toLocaleDateString('en-GB', dateOptions).replaceAll('/', '.')}</p>
-                <p className='text-center'>{dateTime.toLocaleTimeString("en-GB")}</p>
+                <p className="date">{dateTime.toLocaleDateString('en-GB', dateOptions).replaceAll('/', '.')}</p>
+                <p className="time w-5">{dateTime.toLocaleTimeString("en-GB")}</p>
             </div>
             {/* <button className="pr-1 hover:text-red-700" onClick={close}> */}
             <button 

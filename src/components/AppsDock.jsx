@@ -17,7 +17,7 @@ export default function AppsDock() {
   }
 
   return (
-    <div className="apps-dock mb-1 sm:mb-0 ml-0 sm:ml-1 px-2 sm:px-1.5 py-1.5 sm:py-2.5 flex sm:flex-col gap-3 border-2 border-slate-400 text-slate-300 bg-black bg-opacity-75 rounded-xl">
+    <div className="apps-dock mb-1 sm:mb-0 ml-0 sm:ml-1 px-2 sm:px-1.5 py-1.5 sm:py-2.5 flex sm:flex-col gap-3 border-2 border-slate-300 text-slate-300 bg-black bg-opacity-75 rounded-xl">
       {Object.entries(apps).map(([appKey, app]) => {
         return (
         <button 
