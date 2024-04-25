@@ -14,7 +14,7 @@ export default function App() {
   const TerminalApp = {
     appKey: "Terminal",
     component: <Terminal onClose={() => closeApp(this.appKey)}/>,
-    icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m9 12v2h6v-2zm-3.586-3l-2.828 2.828L7 16.243L11.243 12L7 7.757L5.586 9.172z"/></svg>,
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m5 7l5 5l-5 5m7 2h7"/></svg>,
     height: "25rem",
     width: "40rem",
     minHeight: "180px",
